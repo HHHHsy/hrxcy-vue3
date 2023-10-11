@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 
 import { useMain } from '@/store/index'
+import Login from '@/Login.vue'
 
 let routes= [
 	{
@@ -11,7 +12,7 @@ let routes= [
 	{
 		path: '/login',
 		name: 'Login',
-		component: ()=> import('@/Login.vue')
+		component: Login
 	}
 ]
 
