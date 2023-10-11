@@ -10,7 +10,7 @@ import {ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
-		vue(),
+		
 		AutoImport({
 			//安装两行后你会发现在组件中不用再导入ref，reactive等
 			imports: ['vue', 'vue-router'],
@@ -24,6 +24,7 @@ export default defineConfig({
 			dts: "src/components.d.ts",
 			resolvers: [ElementPlusResolver()]
 		}),
+		vue(),
 	],
 	resolve: {
 		// ↓路径别名
