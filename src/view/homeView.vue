@@ -1,11 +1,18 @@
 <template>
-  <div class="hr-main">
+  <!-- <div class="hr-main">
     <div class="hr-content">
       <div class="font-top">
         <p>牢大！牢大！！o.0</p>
       </div>
     </div>
-  </div>
+  </div> -->
+  
+  <div class="common-layout">
+      <el-container>
+        <el-header>Header</el-header>
+        <el-main>Main</el-main>
+      </el-container>
+    </div>
 </template>
 
 <script setup lang="ts">
