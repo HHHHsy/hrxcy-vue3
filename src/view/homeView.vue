@@ -15,14 +15,14 @@
 				</div>
 			</div>
 			<div class="imgPf">
-				<img src="http://www.hrxcy.xyz:8080/img/kobi.jpg" alt="kobi">
+				<img src="http://www.hrxcy.xyz:8080/img/apq.jpg" alt="kobi">
 				<div class="kobi">
 					<p>评分:</p>
 					<el-rate size="small" v-model="value1" :texts="['no', 'noo', 'no', 'good', 'laoda!!']" show-text @change="changeT1" />
 				</div>
 			</div>
 			<div class="imgPf">
-				<img src="http://www.hrxcy.xyz:8080/img/kobi.jpg" alt="kobi">
+				<img src="http://www.hrxcy.xyz:8080/img/laoda1.jpg" alt="kobi">
 				<div class="kobi">
 					<p>评分:</p>
 					<el-rate size="small" v-model="value2" :texts="['no', 'noo', 'no', 'good', 'laoda!!']" show-text @change="changeT1"/>
