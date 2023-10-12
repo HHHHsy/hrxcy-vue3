@@ -8,7 +8,7 @@ export const useMain = defineStore('main', {
       // 所有这些属性都将自动推断其类型,如果推断失败可以试下 as xxx
       counter: 0,
       name: 'Eduardo',
-	  status: false,
+	  status: true,
     }
   },
   // 相当于计算属性

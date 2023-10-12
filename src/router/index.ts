@@ -20,7 +20,7 @@ const router = createRouter({
 	history: createWebHistory(),
 	routes
 })
-router.beforeEach(async (to, from) => {
+router.beforeEach(async (to, _from) => {
 	const store = useMain()
    if (
      // 检查用户是否已登录
@@ -32,5 +32,9 @@ router.beforeEach(async (to, from) => {
      return { name: 'Login' }
    }
  })
-
+// GOOD
+// router.beforeEach((to, from, next) => {
+//   if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' })
+//   else next()
+// })
 export default router

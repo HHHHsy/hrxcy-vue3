@@ -27,8 +27,16 @@
 
 <script lang="ts" setup>
 import bjb from '@/assets/img/爆金币.jpg'
+import { useMain } from '@/store/index'
+import router from '@/router/index'
+
+//const store = useMain()
+const store = useMain()
+
 const loginBtn = () =>{
 	ElMessage.success('登录成功了,牢大.')
+	store.status = false
+	router.push({ path: '/' }).catch(()=>{})
 }
 
 </script>
