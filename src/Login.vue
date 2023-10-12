@@ -1,34 +1,53 @@
 <template>
-	<div class="login-content">
-		<div class="content-main">
-			<div class="input">
-				<el-form label-width="50px" style="text-align: -webkit-center;">
-					<div class="text">
-						<el-avatar :src="bjb"/>
-						<p>登录页面</p>
-					</div>
-					<el-form-item label="账户">
-						<el-input ></el-input>
-					</el-form-item>
+	<div class="hrxcy">
+		<div class="kobi">
+			<img src="http://www.hrxcy.xyz:8080/img/kobi.jpg" alt="kobi">
+		</div>
+		<div class="login-content">
+			<div class="left">
+				<img src="http://www.hrxcy.xyz:8080/img/zsj.jpg" alt="">
+			</div>
+			
+			<div class="content-main">
+				<div class="input">
 					
-					<el-form-item label="密码">
-						<el-input ></el-input>
-					</el-form-item>
-					
-					<el-form-item >
-						<el-button type="primary" @click="loginBtn">登录</el-button>
-						<el-button type="primary">取消</el-button>
-					</el-form-item>
-				</el-form>
+					<el-form label-width="50px" style="text-align: -webkit-center;">
+						<div class="text">
+							<el-avatar src="http://www.hrxcy.xyz:8080/img/bjb.jpg"/>
+							<p>登录页面</p>
+						</div>
+						<el-form-item label="账户">
+							<el-input ></el-input>
+						</el-form-item>
+						
+						<el-form-item label="密码">
+							<el-input ></el-input>
+						</el-form-item>
+						
+						<el-form-item >
+							<el-button type="primary" @click="loginBtn">登录</el-button>
+							<el-button type="primary">取消</el-button>
+						</el-form-item>
+					</el-form>
+				</div>
+			</div>
+			<div class="right">
+				<img src="http://www.hrxcy.xyz:8080/img/zsj2.gif" alt="">
 			</div>
 		</div>
 	</div>
 </template>
 
 <script lang="ts" setup>
-import bjb from '@/assets/img/爆金币.jpg'
+ //import bjb from '@/assets/img/爆金币.jpg'
 import { useMain } from '@/store/index'
 import router from '@/router/index'
+
+// 获取静态资源
+// const getAssetsFile = (url:string)=>{
+// 	return new URL(`./assets/img/${url}`,import.meta.url).href
+// }
+// const cs = ref(`${getAssetsFile('爆金币.jpg')}`)
 
 //const store = useMain()
 const store = useMain()
@@ -42,9 +61,24 @@ const loginBtn = () =>{
 </script>
 
 <style lang="scss" scoped>
+
+@media screen and (max-width: 600px) {
+  .login-content{
+	  width: 100%;
+	  // height: 100vh;
+	  text-align: center;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  flex-direction: column;
+  }
+}
+.hrxcy{
+	
+}
 .login-content{
 	width: 100%;
-	height: 100vh;
+	// height: 100vh;
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -60,7 +94,7 @@ const loginBtn = () =>{
 		justify-content: center;
 		align-items: center;
 		.input{
-			width: 90%;
+			width: 350px;
 		}
 		
 	}
@@ -86,6 +120,23 @@ const loginBtn = () =>{
 	}
 	el-avatar{
 		margin-right: 5px;
+	}
+}
+.left{
+	margin-right: 30px;
+}
+.right{
+	margin-left: 30px;
+}
+.kobi{
+	
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	img{
+		padding: 10px;
+		width: 300px;
+		height: 300px;
 	}
 }
 </style>

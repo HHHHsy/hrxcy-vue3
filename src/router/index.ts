@@ -22,15 +22,15 @@ const router = createRouter({
 })
 router.beforeEach(async (to, _from) => {
 	const store = useMain()
-   if (
+    if (
      // 检查用户是否已登录
      store.status &&
      // ❗️ 避免无限重定向
      to.name !== 'Login'
-   ) {
+    ) {
      // 将用户重定向到登录页面
      return { name: 'Login' }
-   }
+    }
  })
 // GOOD
 // router.beforeEach((to, from, next) => {
