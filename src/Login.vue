@@ -31,10 +31,12 @@
 					</el-form>
 				</div>
 			</div>
+			
 			<div class="right">
 				<img src="http://www.hrxcy.xyz:8080/img/zsj2.gif" alt="">
 			</div>
 		</div>
+
 	</div>
 </template>
 
@@ -58,6 +60,7 @@ const loginBtn = () =>{
 	router.push({ path: '/' }).catch(()=>{})
 }
 
+
 </script>
 
 <style lang="scss" scoped>
@@ -74,11 +77,13 @@ const loginBtn = () =>{
   }
 }
 .hrxcy{
-	
+	width: 100%;
+	height: 100vh;
 }
 .login-content{
 	width: 100%;
 	// height: 100vh;
+	// background-color: aqua;
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -93,6 +98,9 @@ const loginBtn = () =>{
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		animation: mains;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
 		.input{
 			width: 350px;
 		}
@@ -124,9 +132,15 @@ const loginBtn = () =>{
 }
 .left{
 	margin-right: 30px;
+	animation: move;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
 }
 .right{
 	margin-left: 30px;
+	animation: move;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
 }
 .kobi{
 	
@@ -137,6 +151,50 @@ const loginBtn = () =>{
 		padding: 10px;
 		width: 300px;
 		height: 300px;
+		animation: kobi;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
 	}
 }
+@keyframes main {
+	0%{
+		
+	}
+}
+@keyframes kobi {
+	0% {
+	    transform: scale(1);
+	}
+	50% {
+	    transform: scale(2);
+	}
+	100% {
+	    transform: scale(1);
+	}
+}
+
+
+/* move为动画名 自定义 */
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(150px, 0);
+    }
+
+    50% {
+        transform: translate(150px, 150px);
+    }
+
+    75% {
+        transform: translate(0, 150px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
 </style>
