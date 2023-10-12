@@ -21,10 +21,11 @@ const router = createRouter({
 	routes
 })
 router.beforeEach(async (to, _from) => {
+	let localStatus = localStorage.getItem('status')
 	const store = useMain()
     if (
      // 检查用户是否已登录
-     store.status &&
+     !(store.status||localStatus==='true') &&
      // ❗️ 避免无限重定向
      to.name !== 'Login'
     ) {

@@ -1,128 +1,137 @@
 <template>
-  <el-container class="layout-container-demo" style="height: 500px">
-    <el-aside width="200px">
-      <el-scrollbar>
-        <el-menu :default-openeds="['1', '3']">
-          <el-sub-menu index="1">
-            <template #title>
-              <el-icon><message /></el-icon>Navigator One
-            </template>
-            <el-menu-item-group>
-              <template #title>Group 1</template>
-              <el-menu-item index="1-1">Option 1</el-menu-item>
-              <el-menu-item index="1-2">Option 2</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="Group 2">
-              <el-menu-item index="1-3">Option 3</el-menu-item>
-            </el-menu-item-group>
-            <el-sub-menu index="1-4">
-              <template #title>Option4</template>
-              <el-menu-item index="1-4-1">Option 4-1</el-menu-item>
-            </el-sub-menu>
-          </el-sub-menu>
-          <el-sub-menu index="2">
-            <template #title>
-              <el-icon><icon-menu /></el-icon>Navigator Two
-            </template>
-            <el-menu-item-group>
-              <template #title>Group 1</template>
-              <el-menu-item index="2-1">Option 1</el-menu-item>
-              <el-menu-item index="2-2">Option 2</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="Group 2">
-              <el-menu-item index="2-3">Option 3</el-menu-item>
-            </el-menu-item-group>
-            <el-sub-menu index="2-4">
-              <template #title>Option 4</template>
-              <el-menu-item index="2-4-1">Option 4-1</el-menu-item>
-            </el-sub-menu>
-          </el-sub-menu>
-          <el-sub-menu index="3">
-            <template #title>
-              <el-icon><setting /></el-icon>Navigator Three
-            </template>
-            <el-menu-item-group>
-              <template #title>Group 1</template>
-              <el-menu-item index="3-1">Option 1</el-menu-item>
-              <el-menu-item index="3-2">Option 2</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="Group 2">
-              <el-menu-item index="3-3">Option 3</el-menu-item>
-            </el-menu-item-group>
-            <el-sub-menu index="3-4">
-              <template #title>Option 4</template>
-              <el-menu-item index="3-4-1">Option 4-1</el-menu-item>
-            </el-sub-menu>
-          </el-sub-menu>
-        </el-menu>
-      </el-scrollbar>
-    </el-aside>
+	<div class="hrxcy-home">
+		<div class="hrxcy-top">
+			<div class="hrxcy-rate-text">
+				<p>为了纪念我们心中的那个他，请充满感情与口水的为他献上你的评分，为它进行公平公正公开的评判！！</p>
+			</div>
+		</div>
 
-    <el-container>
-      <el-header style="text-align: right; font-size: 12px">
-        <div class="toolbar">
-          <el-dropdown>
-            <el-icon style="margin-right: 8px; margin-top: 1px"
-              ><setting
-            /></el-icon>
-            <template #dropdown>
-              <el-dropdown-menu>
-                <el-dropdown-item>View</el-dropdown-item>
-                <el-dropdown-item>Add</el-dropdown-item>
-                <el-dropdown-item>Delete</el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown>
-          <span>Tom</span>
-        </div>
-      </el-header>
+		<div class="hrxcy-zj">
+			<div class="imgPf">
+				<img src="http://www.hrxcy.xyz:8080/img/kobi.jpg" alt="kobi">
+				<div class="kobi">
+					<p>评分:</p>
+					<el-rate size="small" v-model="value" :texts="['no', 'noo', 'no', 'good', 'laoda!!']" @change="changeT1" show-text />
+				</div>
+			</div>
+			<div class="imgPf">
+				<img src="http://www.hrxcy.xyz:8080/img/kobi.jpg" alt="kobi">
+				<div class="kobi">
+					<p>评分:</p>
+					<el-rate size="small" v-model="value1" :texts="['no', 'noo', 'no', 'good', 'laoda!!']" show-text @change="changeT1" />
+				</div>
+			</div>
+			<div class="imgPf">
+				<img src="http://www.hrxcy.xyz:8080/img/kobi.jpg" alt="kobi">
+				<div class="kobi">
+					<p>评分:</p>
+					<el-rate size="small" v-model="value2" :texts="['no', 'noo', 'no', 'good', 'laoda!!']" show-text @change="changeT1"/>
+				</div>
+			</div>
+		</div>
 
-      <el-main>
-        <el-scrollbar>
-          <el-table :data="tableData">
-            <el-table-column prop="date" label="Date" width="140" />
-            <el-table-column prop="name" label="Name" width="120" />
-            <el-table-column prop="address" label="Address" />
-          </el-table>
-        </el-scrollbar>
-      </el-main>
-    </el-container>
-  </el-container>
+		<div class="hrxcy-bottom-cp">
+			<div class="hmb" :style="ldColor">
+				<span>黑曼巴严选评分 ：</span><p> {{ laoda }}</p>
+			</div>
+		</div>
+
+		<div class="hrxcy-bottom">
+
+		</div>
+	</div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { Menu as IconMenu, Message, Setting } from '@element-plus/icons-vue'
-
-const item = {
-  date: '2016-05-02',
-  name: 'Tom',
-  address: 'No. 189, Grove St, Los Angeles',
-}
-const tableData = ref(Array.from({ length: 20 }).fill(item))
+	const ldColor = ref('black')
+	const value = ref(0)
+	const value1 = ref(0)
+	const value2 = ref(0)
+	const laoda = ref()
+	let sum:number
+	const changeT1 = ((v: number)=>{
+		sum = value.value + value1.value + value2.value
+		if(sum == 15){
+			laoda.value = '而你!就是黑曼巴精神！！龟龟，牛大了。'
+			ldColor.value = 'red'
+		}
+		if( sum > 10 && sum < 15){
+			laoda.value = '你!就是下一个牢大。'
+		}
+		if(sum < 10){
+			laoda.value = '中嘞，老乡'
+		}
+		ElMessage.success(`公平公正评分成功！达到惊人的${v}分！！！`)
+	})
+	
 </script>
 
-<style scoped>
-.layout-container-demo .el-header {
-  position: relative;
-  background-color: var(--el-color-primary-light-7);
-  color: var(--el-text-color-primary);
-}
-.layout-container-demo .el-aside {
-  color: var(--el-text-color-primary);
-  background: var(--el-color-primary-light-8);
-}
-.layout-container-demo .el-menu {
-  border-right: none;
-}
-.layout-container-demo .el-main {
-  padding: 0;
-}
-.layout-container-demo .toolbar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  right: 20px;
-}
+<style lang="scss" scoped>
+	.hrxcy-home {
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		align-items: center;
+
+	}
+
+	.hrxcy-top {
+		width: 100%;
+		height: 1.875rem;
+		background-color: darkgrey;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.hrxcy-rate-text p {
+			color: aliceblue;
+		}
+	}
+
+	.hrxcy-zj {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly;
+		flex-wrap: wrap;
+
+		img {
+			width: 10.75rem;
+			height: 10.75rem;
+		}
+
+		.kobi {
+			width: 10.75rem;
+		}
+	}
+
+	.hrxcy-bottom {
+		width: 100%;
+		height: 1.875rem;
+		background-color: darkcyan;
+	}
+
+	.hrxcy-bottom-cp {
+		width: 80%;
+		height: 20.875rem;
+		border: 2px solid whitesmoke;
+		box-shadow: 5px 2px 10px 0;
+		padding: 20px;
+		
+		
+		p{
+			font-size: 20px;
+			font-weight: 800;
+			 color: v-bind(ldColor);
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+		.hmb{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
 </style>

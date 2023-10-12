@@ -56,7 +56,8 @@ const store = useMain()
 
 const loginBtn = () =>{
 	ElMessage.success('登录成功了,牢大.')
-	store.status = false
+	store.status = true
+	localStorage.setItem('status',store.status+'')
 	router.push({ path: '/' }).catch(()=>{})
 }
 
